@@ -1,3 +1,4 @@
+
 var listTopSong = document.querySelector('.topMusic_item--song');
 var itemTopSong = document.querySelector('.topSong');
 var song = document.getElementById('songFile');
@@ -115,6 +116,34 @@ var listSongOf =[
         nameFile:'amee/thaymoicogaiiuanh.mp3',
         img:'amee/thaymoicogaiiuanh.jpg',
         artist:'amee'
+    },
+    {
+        nameSong:'Sao ta ngược lối',
+        nameArtist:'Đình dũng',
+        nameFile:'dinhdung/saotanguocloi.mp3',
+        img:'dinhdung/saotanguocloi.jpg',
+        artist:'dinhdung'
+    },
+    {
+        nameSong:'Câu hẹn câu thề',
+        nameArtist:'Đình dũng',
+        nameFile:'dinhdung/cauhencauthe.mp3',
+        img:'dinhdung/cauhencauthe.jpg',
+        artist:'dinhdung'
+    },
+    {
+        nameSong:'Đừng hẹn kiếp sau',
+        nameArtist:'Đình dũng',
+        nameFile:'dinhdung/dunghenkiepsau.mp3',
+        img:'dinhdung/dunghenkiepsau.jfif',
+        artist:'dinhdung'
+    },
+    {
+        nameSong:'Đế vương',
+        nameArtist:'Đình Dũng',
+        nameFile:'dinhdung/devuong.mp3',
+        img:'dinhdung/devuong.jpg',
+        artist:'dinhdung'
     }
 ]
 song.setAttribute("src",`./musics/${topSong[topSongIndex].nameFile}`);
@@ -123,11 +152,11 @@ playBtn.addEventListener('click', playMusic);
 function playMusic(){
     if(isPlaying){
         song.play();
-        playBtn.innerHTML = `<i class="fa-solid fa-circle-pause"></i>`;
+        playBtn.innerHTML = `<i class="fa-light fa-circle-pause"></i>`;
         isPlaying = false;
     } else {
         song.pause();
-        playBtn.innerHTML = `<i class="fa-solid fa-circle-play"></i>`;
+        playBtn.innerHTML = `<i class="fa-light fa-circle-play"></i>`;
         isPlaying = true;
     }
 }
@@ -135,6 +164,7 @@ function playMusic(){
 
 
 function playTopSong(index){
+    renderListMusicOf('sontung',0);
     isTopSongPlaying = true;
     topSongIndex = index;
     replaceAtributeTopSong();
@@ -250,7 +280,7 @@ function renderRecentSong(artist,stt){
         if(artist == listSongOf[index].artist){
             i++;
             recentSong.innerHTML += `
-            <div class="recentPlayed_item" onclick="playMusicOf(${index},${i}),recentPlayedItem = this">
+            <div class="recentPlayed_item recentPlayed_item${i}" onclick="playMusicOf(${index},${i})">
                     <div class="recentPlayed_item-img">
                         <img class="recentPlayed_item-img" src="./img/${listSongOf[index].img}" alt="">
                     </div>
@@ -263,11 +293,21 @@ function renderRecentSong(artist,stt){
                 </div>
             `
         }
-    }
+    } 
+
     
 }
+
+
 function playMusicOf(num,i){
     isTopSongPlaying = false;
+    recentPlayedItem = document.querySelectorAll('.recentPlayed_item');
+    for( var index1 =0;index1< recentPlayedItem.length; index1++ ){
+        if( recentPlayedItem[index1].classList.contains('recentPlayed_item_clicked'))
+    recentPlayedItem[index1].classList.remove('recentPlayed_item_clicked');
+    }
+    
+    recentPlayedItem[i].classList.add('recentPlayed_item_clicked');
     console.log(recentPlayedItem);
     renderTopSong();
     song.setAttribute("src",`./musics/${listSongOf[num].nameFile}`);
