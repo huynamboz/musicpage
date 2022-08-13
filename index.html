@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="allPage">
+    <div class="main">
+        <div class="leftBar">
+            <h2 class="leftBar_title"><i class="fa-solid fa-align-left"></i> MUSIC PAGE</h2>
+            <div class="leftBar_recommend">
+                <span class="leftBar_title2">Recommend</span>
+                <ul>
+                    <li class="leftBar_recommend-item item1"><i class="fa-duotone fa-boombox"></i> For you</li>
+                    <li class="leftBar_recommend-item item2"><i class="fa-regular fa-album-collection"></i>  Library</li>
+                    <li class="leftBar_recommend-item item3"><i class="fa-regular fa-radio"></i>  Radio Station</li>
+                    <li class="leftBar_recommend-item item4"><i class="fa-regular fa-photo-film"></i>Music Video</li>
+
+                </ul>
+            </div>
+            <div class="leftBar_mymusic">
+                <span class="leftBar_title2">My music</span>
+                <ul>
+                    <li class="leftBar_mymusic-item">Liked song</li>
+                    <li class="leftBar_mymusic-item">Album</li>
+                    <li class="leftBar_mymusic-item">Artist</li>
+                    <li class="leftBar_mymusic-item">Recent</li>
+
+
+                </ul>
+            </div>
+            <div class="leftBar_playlist">
+                <span class="leftBar_title2">Playlist</span>
+                <ul>
+                    <li class="leftBar_playlist-item">Hip-hop</li>
+                    <li class="leftBar_playlist-item">Jazz</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <header>
+                <div class="search">
+                    <i class="fa-regular fa-magnifying-glass"></i> <input type="text" placeholder="Start search here">  
+                </div>
+                <div class="account">
+
+                </div>
+            </header><h2 class="topMusic-title">Top Song 2022</h2>
+            <div class="topMusic">
+                <div class="topMusic_item--img">
+                    <img class="topMusic_item--img--thumb"  alt="">
+                </div>
+                <div class="topMusic_item--song">
+
+                    <div onclick="playTopSong(0)" class="topSong">
+                        <div class="topMusicLeft">
+                                <div class="topSong_rank">1</div>
+                                <div class="topSong_love"><i class="fa-light fa-heart"></i></div>
+                                <div class="topSong_name">
+                                    <div class="topSong_name-nameSong">Anh sai rồi</div>
+                                    <div class="topSong_name-artist">Sơn Tùng</div>
+                                </div> 
+                        </div>
+                        <div class="topSong_time">4:22</div>
+                    </div>
+
+                    <div onclick="playTopSong(1)" class="topSong">
+                        <div class="topMusicLeft">
+                                <div class="topSong_rank">2</div>
+                                <div class="topSong_love"><i class="fa-light fa-heart"></i></div>
+                                <div class="topSong_name">
+                                    <div class="topSong_name-nameSong">Nàng thơ</div>
+                                    <div class="topSong_name-artist">Amee</div>
+                                </div> 
+                        </div>
+                        <div class="topSong_time">4:22</div>
+                    </div>
+
+                    <div onclick="playTopSong(2)" class="topSong">
+                        <div class="topMusicLeft">
+                                <div class="topSong_rank">3</div>
+                                <div class="topSong_love"><i class="fa-light fa-heart"></i></div>
+                                <div class="topSong_name">
+                                    <div class="topSong_name-nameSong">Đế vương</div>
+                                    <div class="topSong_name-artist">Đình Dũng</div>
+                                </div> 
+                        </div>
+                        <div class="topSong_time">4:20</div>
+                    </div>
+
+                    <div onclick="playTopSong(3)" class="topSong">
+                        <div class="topMusicLeft">
+                                <div class="topSong_rank">4</div>
+                                <div class="topSong_love"><i class="fa-light fa-heart"></i></div>
+                                <div class="topSong_name">
+                                    <div class="topSong_name-nameSong">Khuôn mặt đáng thương</div>
+                                    <div class="topSong_name-artist">Sơn Tùng</div>
+                                </div> 
+                        </div>
+                        <div class="topSong_time">4:21</div>
+                    </div>
+
+                    
+
+                </div>
+            </div>
+            <h3 class="recentPlayed_title">Recent Played</h3>
+            <div class="recentPlayed">
+
+                <!-- <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div>
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div>
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div>
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div>
+
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div>
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        sontung
+                    </div>
+                </div>
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div>
+                <div class="recentPlayed_item">
+                    <div class="recentPlayed_item-img">
+                        <img class="recentPlayed_item-img" src="./img/sontung/ava.jpg" alt="">
+                    </div>
+                    <div class="recentPlayed_item-nameSong">
+                        Chac ai do se ve
+                    </div>
+                    <div class="recentPlayed_item-artist">
+                        SON TUNG
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="rightBar">
+            <h3 class="listArtist_title">Nghệ sĩ gần đây</h3>
+            <div class="listArtist">
+                <div class="listArtist_item" onclick="renderListMusicOf('sontung',0)">
+                    <div class="listArtist_item-img"><img class="listArtist_item-img" src="./img/sontung/ava.jpg" alt=""></div>
+                    <div class="listArtist_item-name">
+                        <span class="listArtist_item-nameSong">Sơn Tùng</span>
+                        <span class="listArtist_item-nameArtist">3 minutes ago</span>
+                    </div>
+                    <div class="listArtist_item-iconRunning"><img src=""/></div>
+                </div>
+                <div class="listArtist_item" onclick="renderListMusicOf('amee',1)">
+                    <div class="listArtist_item-img"><img class="listArtist_item-img" src="./img/amee/ava.webp" alt=""></div>
+                    <div class="listArtist_item-name">
+                        <span class="listArtist_item-nameSong">AMEE</span>
+                        <span class="listArtist_item-nameArtist">1 minutes ago</span>
+                    </div>
+                    <div class="listArtist_item-iconRunning"><img src=""/></div>
+                </div>
+                <div class="listArtist_item" onclick="renderListMusicOf('sontung',2)">
+                    <div class="listArtist_item-img"><img class="listArtist_item-img" src="./img/dinhdung/ava.jpg" alt=""></div>
+                    <div class="listArtist_item-name">
+                        <span class="listArtist_item-nameSong">Đình Dũng</span>
+                        <span class="listArtist_item-nameArtist">4 minutes ago</span>
+                    </div>
+                    <div class="listArtist_item-iconRunning"><img src=""/></div>
+                </div>
+                <div class="listArtist_item" onclick="renderListMusicOf('sontung',3)">
+                    <div class="listArtist_item-img"><img class="listArtist_item-img" src="./img//thangbinh/ava.jpg" alt=""></div>
+                    <div class="listArtist_item-name">
+                        <span class="listArtist_item-nameSong">Trịnh Thăng Bình</span>
+                        <span class="listArtist_item-nameArtist">2 minutes ago</span>
+                    </div>
+                    <div class="listArtist_item-iconRunning"><img src=""/></div>
+                </div>
+                <div class="listArtist_item" onclick="renderListMusicOf('sontung',4)">
+                    <div class="listArtist_item-img"><img class="listArtist_item-img" src="./img/ducphuc/ava.jpg" alt=""></div>
+                    <div class="listArtist_item-name">
+                        <span class="listArtist_item-nameSong">Đức Phúc</span>
+                        <span class="listArtist_item-nameArtist">6 minutes ago</span>
+                    </div>
+                    <div class="listArtist_item-iconRunning"><img src=""/></div>
+                </div>
+                
+            </div>
+            <h3 class="anotherSong_title">Các bài hát gần đây</h3>
+            <div class="anotherSong">
+                <div class="anotherSong_item" onclick="renderAnotherSong(0)">
+                    <div class="anotherSong_item-img"><img class="anotherSong_item-img" src="./img/sontung/ava.jpg" alt=""></div>
+                    <div class="anotherSong_item-name">
+                        <span class="anotherSong_item-nameSong">Chac ai do se ve</span>
+                        <span class="anotherSong_item-nameArtist">SONTUNG</span>
+                    </div>
+                    <div class="anotherSong_item-iconRunning"></div>
+                </div>
+                <div class="anotherSong_item" onclick="renderAnotherSong(0)">
+                    <div class="anotherSong_item-img"><img class="anotherSong_item-img" src="./img/sontung/ava.jpg" alt=""></div>
+                    <div class="anotherSong_item-name">
+                        <span class="anotherSong_item-nameSong">Chac ai do se ve</span>
+                        <span class="anotherSong_item-nameArtist">SONTUNG</span>
+                    </div>
+                    <div class="anotherSong_item-iconRunning"></div>
+                </div>
+                <div class="anotherSong_item" onclick="renderAnotherSong(0)">
+                    <div class="anotherSong_item-img"><img class="anotherSong_item-img" src="./img/sontung/ava.jpg" alt=""></div>
+                    <div class="anotherSong_item-name">
+                        <span class="anotherSong_item-nameSong">Chac ai do se ve</span>
+                        <span class="anotherSong_item-nameArtist">SONTUNG</span>
+                    </div>
+                    <div class="anotherSong_item-iconRunning"></div>
+                </div>
+                <div class="anotherSong_item" onclick="renderAnotherSong(0)">
+                    <div class="anotherSong_item-img"><img class="anotherSong_item-img" src="./img/sontung/ava.jpg" alt=""></div>
+                    <div class="anotherSong_item-name">
+                        <span class="anotherSong_item-nameSong">Chac ai do se ve</span>
+                        <span class="anotherSong_item-nameArtist">SONTUNG</span>
+                    </div>
+                    <div class="anotherSong_item-iconRunning"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body><div class="playerBar">
+
+    <div class="rangeBar">
+        <div class="currTime">00:00</div>
+        <div class="music_bar"><input type="range" name="songBar" id="songBar"></div>
+        <div class="durrTime">00:00</div>
+    </div>  
+    <audio id="songFile"></audio>
+    <div class="playerBar_item">
+        <div class="playerBar_item-info">
+            <div class="playerBar_item-img"><img class="playerBar_item-img--thumb" alt=""></div>
+                <div class="playerBar_item-name">
+                    <div class="playerBar_item-name--nameSong">Chac ai do se ve</div>
+                    <div class="playerBar_item-name--nameArtist">Son Tung</div>
+                </div>
+        </div>
+        <div class="playerBar_item-action">
+            <div class="back playerBar_item-action--size"><i class="fa-regular fa-backward"></i></div>
+            <div id="pause" class="pause playerBar_item-action--pausesize"><i class="fa-solid fa-circle-play"></i></div>
+            <div class="next playerBar_item-action--size"><i class="fa-regular fa-forward"></i></div>            
+        </div>
+        <div class="playerBar_item-vol">
+            <div class="playerBar_item-vol--icon"><i class="fa-solid fa-volume-high"></i></div>
+            <div class="playerBar_item-vol--bar"><input type="range" name="" id="volRange"></div>
+        </div>
+    </div>
+</div>
+<script src="main.js"></script>
+</html>
