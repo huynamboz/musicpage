@@ -8,21 +8,21 @@
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.2/css/all.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <div class="allPage">
     <div class="main">
         <div class="leftBar">
-            <h2 class="leftBar_title"><i class="fa-solid fa-align-left"></i> MUSIC PAGE</h2>
+            <h3 class="leftBar_title"><i class="fa-solid fa-align-left"></i> MUSIC PAGE</h3>
             <div class="leftBar_recommend">
                 <span class="leftBar_title2">Recommend</span>
                 <ul>
-                    <li class="leftBar_recommend-item item1"><i class="fa-duotone fa-boombox"></i> For you</li>
-                    <li class="leftBar_recommend-item item2"><i class="fa-regular fa-album-collection"></i>  Library</li>
-                    <li class="leftBar_recommend-item item3"><i class="fa-regular fa-radio"></i>  Radio Station</li>
-                    <li class="leftBar_recommend-item item4"><i class="fa-regular fa-photo-film"></i>Music Video</li>
+                    <li class="leftBar_recommend-item item1">For you</li>
+                    <li class="leftBar_recommend-item item2">Library</li>
+                    <li class="leftBar_recommend-item item3">Radio Station</li>
+                    <li class="leftBar_recommend-item item4">Music Video</li>
 
                 </ul>
             </div>
@@ -207,7 +207,7 @@
             </div>
         </div>
         <div class="rightBar">
-            <h3 class="listArtist_title">Nghệ sĩ gần đây</h3>
+            <h3 class="listArtist_title">Recent Singers</h3>
             <div class="listArtist">
                 <div class="listArtist_item" onclick="renderListMusicOf('sontung',0)">
                     <div class="listArtist_item-img"><img class="listArtist_item-img" src="./img/sontung/ava.jpg" alt=""></div>
@@ -251,9 +251,10 @@
                 </div>
                 
             </div>
-            <h3 class="anotherSong_title">Các bài hát gần đây</h3>
+            <h3 class="anotherSong_title">Another songs</h3>
             <div class="anotherSong">
-                <div class="anotherSong_item" onclick="renderAnotherSong(0)">
+
+                <!-- <div class="anotherSong_item" onclick="renderAnotherSong(0)">
                     <div class="anotherSong_item-img"><img class="anotherSong_item-img" src="./img/sontung/ava.jpg" alt=""></div>
                     <div class="anotherSong_item-name">
                         <span class="anotherSong_item-nameSong">Chac ai do se ve</span>
@@ -284,7 +285,7 @@
                         <span class="anotherSong_item-nameArtist">SONTUNG</span>
                     </div>
                     <div class="anotherSong_item-iconRunning"></div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -311,8 +312,8 @@
             <div class="next playerBar_item-action--size"><i class="fa-light fa-forward-fast"></i></div>            
         </div>
         <div class="playerBar_item-vol">
-            <div class="playerBar_item-vol--icon"><i class="fa-solid fa-volume-high"></i></div>
-            <div class="playerBar_item-vol--bar"><input type="range" name="" id="volRange"></div>
+            <div class="playerBar_item-vol--icon" onclick="muteVol()"><i class="fa-solid fa-volume-high"></i></div>
+            <div class="playerBar_item-vol--bar"><input type="range" name="" id="volRange" onchange="changevolume(this.value)"></div>
         </div>
     </div>
 </div>
