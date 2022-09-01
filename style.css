@@ -1,3 +1,4 @@
+
 body{
     font-family: 'Nunito', sans-serif;
     /* background-image: linear-gradient(to bottom right , #dad7e7,#d5d3e1); */
@@ -6,11 +7,16 @@ body{
 background: linear-gradient(90deg, rgba(225,237,250,1) 0%, rgba(247,238,242,1) 100%);
 }
 body::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
+    height: 5px;
     background-color: #ffffff;
     margin-bottom: 300px;
     border-radius: 20px;
 } 
+
+body::-webkit-scrollbar-button {
+    height: 5px;
+}
 body::-webkit-scrollbar-track {
     margin-top: 10px;
     margin-bottom: 60px;
@@ -24,7 +30,7 @@ body::-webkit-scrollbar-thumb {
 }
 .recentPlayed::-webkit-scrollbar {
     height: 5px;
-    background-color: #ffffff;
+    background-color: #efeff8;
     margin-bottom: 300px;
     border-radius: 20px
 } 
@@ -43,10 +49,12 @@ body::-webkit-scrollbar-thumb {
     /* background-image: linear-gradient(to bottom right , #dad7e7,#ffffff); */
     /* backdrop-filter:blur(1.5rem) brightness(100%); */
     backdrop-filter: blur(60px);
+    margin-bottom: 80px;
 
 }
 .main{
     display: flex;
+    justify-content: center;
 }
 
 /* leftbar */
@@ -62,14 +70,28 @@ body::-webkit-scrollbar-thumb {
 .leftBar_recommend-item i{
     margin-right: 5px;
 }
+
 .leftBar_recommend-item .item3 i{
     margin-right: 10px;
 }
 .leftBar_recommend-item{
     margin: 20px 0;
 }
+.leftBar_recommend-item:hover {
+    color: #895dd9;
+    cursor: pointer;
+    font-weight: 550;
+}
 .leftBar_mymusic-item{
     margin: 20px 0;
+}
+.leftBar_mymusic-item:hover{
+    color: #895dd9;
+    cursor: pointer;
+}
+.leftBar_playlist-item:hover{
+    color: #895dd9;
+    cursor: pointer;   
 }
 li{
     list-style: none;
@@ -173,10 +195,10 @@ h3{
 .recentPlayed_item:hover{
     cursor: pointer;
 }
-.recentPlayed_item_clicked{
-    /* box-shadow: 0px 6px 15px rgba(0,0,0,0.15); */
+.recentPlayed_item-img_clicked{
+    box-shadow: 0px 14px 15px rgba(0,0,0,0.15);
     border-radius: 15px;
-    background-color: white;
+    /* background-color: white; */
 }
 .recentPlayed_title{
     margin-top: 20px;
@@ -219,6 +241,7 @@ input{
     margin: 10px 0;
     padding: 10px 12px;
     border-radius: 15px;
+    min-width: 200px;
 }
 .listArtist_item:hover{
     background-color: #ffffff;
@@ -321,8 +344,12 @@ background: linear-gradient(90deg, rgba(225,237,250,1) 0%, rgba(247,238,242,1) 1
 .pause{
     margin: 0 30px;
 }
+.pause:hover{
+    color: #895dd9;
+    cursor: pointer;
+}
 .playerBar_item-action--size:hover{
-    color: #c7b1ef;
+    color: #895dd9;
     cursor: pointer;
 }
 .playerBar_item-action--size{
@@ -387,6 +414,50 @@ input[type=range]::-webkit-slider-thumb {
 .anotherSong_item{
     border-radius: 15px;
 }
+.anotherSong_item:hover .anotherSong_item-nameSong{
+    font-weight: 600;
+}
 .anotherSong_item:hover{
     background-color: white;
+}
+.powered{
+    font-weight: 100;
+    font-size: 0.8rem;
+    bottom: 0;
+}
+
+@media only screen and (max-width: 46.1875em) {
+    .leftBar{
+        display: none;
+    }
+    /*.container{
+        display: none;
+    } */
+    .playerBar_item-name{
+        display: none;
+    }
+    .playerBar_item-vol{
+        display: none;
+    }
+    .topMusic{
+        flex-direction: column;
+        align-items: center;
+    }
+    .main{
+        flex-direction: column;
+        padding-right: 30px;
+    }
+    .recentPlayed{
+        display: none;
+    }
+    .container{
+        width: 100%;
+        padding: 15px;
+    }
+    .topMusic_item--song{
+        margin-left: 0;
+    }
+    .listArtist{
+        display: none;
+    }
 }

@@ -165,7 +165,64 @@ var listSongOf =[
         nameFile:'dinhdung/devuong.mp3',
         img:'dinhdung/devuong.jpg',
         artist:'dinhdung'
+    },
+    {
+        nameSong:'Khác biệt to lớn',
+        nameArtist:'Trịnh Thăng Bình',
+        nameFile:'ttbinh/khacbiettolon.mp3',
+        img:'ttbinh/khacbiettolon.jpg',
+        artist:'ttbinh'
+    },
+    {
+        nameSong:'Vỡ tan',
+        nameArtist:'Trịnh Thăng Bình',
+        nameFile:'ttbinh/votan.mp3',
+        img:'ttbinh/votan.jpg',
+        artist:'ttbinh'
+    },
+    {
+        nameSong:'Người ấy',
+        nameArtist:'Trịnh Thăng Bình',
+        nameFile:'ttbinh/nguoiay.mp3',
+        img:'ttbinh/nguoiay.jpg',
+        artist:'ttbinh'
+    },
+    {
+        nameSong:'Em ngủ chưa',
+        nameArtist:'Trịnh Thăng Bình',
+        nameFile:'ttbinh/emnguchua.mp3',
+        img:'ttbinh/emnguchua.jpg',
+        artist:'ttbinh'
+    },
+    {
+        nameSong:'Trái đất đẹp nhất khi có em',
+        nameArtist:'Đức phúc',
+        nameFile:'ducphuc/traidatdepnhatkhicoem.mp3',
+        img:'ducphuc/traidatdepnhatkhicoem.jfif',
+        artist:'ducphuc'
+    },
+    {
+        nameSong:'Năm ấy',
+        nameArtist:'Đức phúc',
+        nameFile:'ducphuc/namay.mp3',
+        img:'ducphuc/namay.jpg',
+        artist:'ducphuc'
+    },
+    {
+        nameSong:'Ngày đầu tiên',
+        nameArtist:'Đức phúc',
+        nameFile:'ducphuc/ngaydautien.mp3',
+        img:'ducphuc/ngaydautien.jpg',
+        artist:'ducphuc'
+    },
+    {
+        nameSong:'Gửi ngàn lời yêu',
+        nameArtist:'Đức phúc',
+        nameFile:'ducphuc/guinganloiyeu.mp3',
+        img:'ducphuc/guinganloiyeu.jpg',
+        artist:'ducphuc'
     }
+
 ]
 song.setAttribute("src",`./musics/${topSong[topSongIndex].nameFile}`);
 
@@ -200,11 +257,11 @@ function nextMusic(){
         for ( var num = 0; num < arrayAdd.length; num++){
             if( arrayAdd[num] == indexOfAnotherSong){
                 console.log(arrayAdd[num++],iOfAnotherSong);
-                if(iOfAnotherSong == 5) {
+                if(iOfAnotherSong == 4) {
                     iOfAnotherSong =0;
                     playAnotherSong(arrayAdd[0],iOfAnotherSong);
                 }
-                else    playAnotherSong(arrayAdd[num++],iOfAnotherSong);
+                else  playAnotherSong(arrayAdd[num++],iOfAnotherSong);
                 break;
             }
         }
@@ -267,6 +324,8 @@ function backMusic(){
         if (indexRecentSongPlaying < 0){
             indexRecentSongPlaying =0;
             }
+        if (currentNum < 0 ) currentNum = 0;
+            console.log(currentNum)
 // renderListMusicOf(listArtistIndex,nameArtistIndex);
         if ( listSongOf[currentNum].artist == listSongOf[currentNum2].artist) //chỗ này currentNum đã được tăng giá trị
         {   
@@ -278,9 +337,11 @@ function backMusic(){
             playMusicOf(currentNum,indexRecentSongPlaying);
         } else {
 
-            indexRecentSongPlaying=termp -1;
+            indexRecentSongPlaying=3;
+            if ( listArtistIndex >= 0) {listArtistIndex--;
             renderListMusicOf(listSongOf[currentNum].artist,listArtistIndex);
             playMusicOf(currentNum,indexRecentSongPlaying);
+            }
             // currentNum++;
         }
     }
@@ -404,7 +465,7 @@ function renderRecentSong(artist,stt){
             i++;
             recentSong.innerHTML += `
             <div class="recentPlayed_item recentPlayed_item${i}" onclick="playMusicOf(${index},${i})">
-                    <div class="recentPlayed_item-img">
+                    <div class="recentPlayed_item-img1">
                         <img class="recentPlayed_item-img" src="./img/${listSongOf[index].img}" alt="">
                     </div>
                     <div class="recentPlayed_item-nameSong">
@@ -429,12 +490,12 @@ function playMusicOf(num,i){
     isTopSongPlaying = false;
     isAnotherSongPlaying = false;
     removeWhiteBackground(0);
-    recentPlayedItem = document.querySelectorAll('.recentPlayed_item');
+    recentPlayedItem = document.querySelectorAll('.recentPlayed_item-img');
     for( var index1 =0;index1< recentPlayedItem.length; index1++ ){
-        if( recentPlayedItem[index1].classList.contains('recentPlayed_item_clicked'))
-    recentPlayedItem[index1].classList.remove('recentPlayed_item_clicked');
+        if( recentPlayedItem[index1].classList.contains('recentPlayed_item-img_clicked'))
+    recentPlayedItem[index1].classList.remove('recentPlayed_item-img_clicked');
     }
-    recentPlayedItem[i].classList.add('recentPlayed_item_clicked');
+    recentPlayedItem[i].classList.add('recentPlayed_item-img_clicked');
     renderTopSong();
     song.setAttribute("src",`./musics/${listSongOf[num].nameFile}`);
     miniArtist.textContent = `${listSongOf[num].nameArtist}`;
@@ -502,7 +563,7 @@ function pushArray(){
     //         }
     //     } else i =0;
     // }
-    while( arrayAdd.length <5 ){
+    while( arrayAdd.length <4 ){
         var termpValue = Math.floor(Math.random()* listSongOf.length);
         if ( checkValue(termpValue)) {
             arrayAdd.push(termpValue);
@@ -537,7 +598,7 @@ function removeWhiteBackground(i){
         if ( anotherSongItem[index1].classList.contains('anotherSong_item-clicked'))
         anotherSongItem[index1].classList.remove('anotherSong_item-clicked');
     }
-    if ( isAnotherSongPlaying)
+    if ( isAnotherSongPlaying )
     anotherSongItem[i].classList.add('anotherSong_item-clicked');
 }
 
@@ -547,7 +608,7 @@ function playAnotherSong(index,i){
     iOfAnotherSong = i;
     console.log(iOfAnotherSong);
     indexOfAnotherSong = index;
-    renderRecentSong('sontung',0);
+    renderListMusicOf('sontung',0);
     isAnotherSongPlaying = true;
     isTopSongPlaying = false;
     renderTopSong();
