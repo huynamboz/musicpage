@@ -8,6 +8,7 @@ body > div {
     -webkit-overflow-scrolling: touch;
 }
 body{
+    -webkit-overflow-scrolling: touch;
     font-family: 'Nunito', sans-serif;
     /* background-image: linear-gradient(to bottom right , #dad7e7,#d5d3e1); */
     /* background-image: url('https://cdn.shopify.com/s/files/1/0575/0987/1774/files/3_a30a55b4-0340-4c38-8e2a-8c7be4f409ba.png?v=1653967370'); */
