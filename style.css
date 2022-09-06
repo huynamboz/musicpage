@@ -423,7 +423,12 @@ input[type=range]::-webkit-slider-thumb {
     font-size: 0.8rem;
     bottom: 0;
 }
-
+.anotherSong_item-name2{
+    display: flex;
+}
+.iconPlaying{
+    margin-left: 10px;
+}
 @media only screen and (max-width: 46.1875em) {
     .leftBar{
         display: none;

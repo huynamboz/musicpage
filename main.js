@@ -585,7 +585,9 @@ function renderAnotherSong(){
                     <div class="anotherSong_item-img"><img class="anotherSong_item-img" src="./img/${listSongOf[arrayAdd[i]].img}" alt=""></div>
                     <div class="anotherSong_item-name">
                         <span class="anotherSong_item-nameSong">${listSongOf[arrayAdd[i]].nameSong}</span>
-                        <span class="anotherSong_item-nameArtist">${listSongOf[arrayAdd[i]].nameArtist}</span>
+                    <div class="anotherSong_item-name2">
+                    <span class="anotherSong_item-nameArtist">${listSongOf[arrayAdd[i]].nameArtist}</span>
+                    <div class="iconPlaying"></div> </div>
                     </div>
                     <div class="anotherSong_item-iconRunning"></div>
                 </div>
@@ -596,18 +598,24 @@ let isAnotherSongPlaying = true;
 renderAnotherSong();
 
 let anotherSongItem = document.querySelectorAll('.anotherSong_item');
+let iconPlaying = document.querySelectorAll('.iconPlaying');
 function removeWhiteBackground(i){
     
     for ( var index1 = 0 ; index1 < anotherSongItem.length ; index1++){
         if ( anotherSongItem[index1].classList.contains('anotherSong_item-clicked'))
         anotherSongItem[index1].classList.remove('anotherSong_item-clicked');
+        iconPlaying[index1].innerHTML = '';
     }
     if ( isAnotherSongPlaying )
-    anotherSongItem[i].classList.add('anotherSong_item-clicked');
+    {
+        iconPlaying[i].innerHTML = '<img class="iconwavegif" src="./icon/wave.gif" alt="">';
+        anotherSongItem[i].classList.add('anotherSong_item-clicked');
+    }
 }
 
 let iOfAnotherSong;
 let indexOfAnotherSong;
+
 function playAnotherSong(index,i){
     iOfAnotherSong = i;
     console.log(iOfAnotherSong);
