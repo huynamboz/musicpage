@@ -2,6 +2,11 @@
 html { 
     scroll-behavior: smooth; 
 }
+body > div {
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-overflow-scrolling: touch;
+}
 body{
     font-family: 'Nunito', sans-serif;
     /* background-image: linear-gradient(to bottom right , #dad7e7,#d5d3e1); */
