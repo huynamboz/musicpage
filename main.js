@@ -350,6 +350,8 @@ function backMusic(){
 }
 
 function playTopSong(index){
+    isAnotherSongPlaying = false;
+    removeWhiteBackground(0);
     renderListMusicOf('sontung',0);
     isTopSongPlaying = true;
     topSongIndex = index;
