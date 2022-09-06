@@ -13,7 +13,8 @@ body{
     /* background-image: linear-gradient(to bottom right , #dad7e7,#d5d3e1); */
     /* background-image: url('https://cdn.shopify.com/s/files/1/0575/0987/1774/files/3_a30a55b4-0340-4c38-8e2a-8c7be4f409ba.png?v=1653967370'); */
     background: rgb(225,237,250);
-background: linear-gradient(90deg, rgba(225,237,250,1) 0%, rgba(247,238,242,1) 100%);
+background: linear-gradient(90deg, rgb(210, 228, 247) 0%, rgb(252, 229, 239) 100%);
+
 }
 body::-webkit-scrollbar {
     width: 5px;
@@ -64,6 +65,7 @@ body::-webkit-scrollbar-thumb {
 .main{
     display: flex;
     justify-content: center;
+    
 }
 
 /* leftbar */
@@ -129,6 +131,11 @@ li{
     margin-left: 20px;
     width: 100%;
     flex-direction: column;
+    overflow-y: scroll;
+    height: 250px;
+}
+.topMusic_item--song::-webkit-scrollbar {
+    display: none;
 }
 .topSong{
     display: flex;
@@ -182,6 +189,39 @@ li{
     height: 250px;
     border-radius: 20px;
     object-fit: cover;
+    transition: 0.3s;
+    box-shadow:0px 6px 15px rgba(0,0,0,0.15);
+
+   
+}
+.rotatePause{
+    animation: 0.5s ease 0s 1 normal forwards running rotatePause;
+    border-radius: 50% !important;
+    transition: 0.3s;
+}
+.rotatePlay{
+    animation: 10s linear 0s infinite normal none running rotatePlay;
+    border-radius: 50% !important;
+    transition: 0.3s;
+}
+@keyframes rotatePlay {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotatePause {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
 h3{
     margin: 0;
@@ -467,6 +507,7 @@ input[type=range]::-webkit-slider-thumb {
         padding: 15px;
     }
     .topMusic_item--song{
+        height: 260px;
         margin-left: 0;
     }
     .listArtist{
@@ -495,4 +536,8 @@ input[type=range]::-webkit-slider-thumb {
     .anotherSong_title{
         margin-top: 20px;
     }
+    .topMusic_item--img--thumb{
+        margin-bottom: 15px;
+    }
+
 }

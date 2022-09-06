@@ -1,6 +1,6 @@
 
 var listTopSong = document.querySelector('.topMusic_item--song');
-var itemTopSong = document.querySelector('.topSong');
+
 var song = document.getElementById('songFile');
 var playBtn = document.getElementById('pause');
 var songBar = document.getElementById('songBar');
@@ -20,19 +20,12 @@ var forWard = document.querySelector('.next');
 let volRange = document.getElementById('volRange');
 let volIcon = document.querySelector('.playerBar_item-vol--icon');
 let anotherSong = document.querySelector('.anotherSong');
-console.log(screen.width);
 let mobile = false
 if ( screen.width < 740) mobile = true;
 setInterval(autoNextTopSong,500);
 setInterval(displayTimer, 500);
 //setInterval(renderTopSong, 500);
-var sontung = [
-    {
 
-        nameFile:'sontung/asairoi.mp3'
-    },
-
-]
 let numberOfArtist = 5;
 var isPlaying = true;
 var topSongIndex = 0;
@@ -65,6 +58,22 @@ var topSong = [
         nameFile:'sontung/khuonmatdangthuong.mp3',
         time:'4:10',
         img:'sontung/khuonmatdangthuong.webp'
+    },
+    {
+        nameSong:'Shay nắng',
+        nameArtist:'Amee',
+        nameFile:'amee/shaynang.mp3',
+        time:'3:28',
+        img:'amee/shaynang.jpg',
+        
+    },
+    {
+        nameSong:'Năm ấy',
+        nameArtist:'Đức phúc',
+        nameFile:'ducphuc/namay.mp3',
+        time:'4:20',
+        img:'ducphuc/namay.jpg',
+        
     },
     
 ]
@@ -231,13 +240,21 @@ song.setAttribute("src",`./musics/${topSong[topSongIndex].nameFile}`);
 playBtn.addEventListener('click', playMusic);
 function playMusic(){
     if(isPlaying){
+        if( topSongThumb.classList.contains('rotatePause')) topSongThumb.classList.remove('rotatePause');
+        topSongThumb.classList.add('rotatePlay');
         song.play();
         playBtn.innerHTML = `<i class="fa-light fa-circle-pause"></i>`;
         isPlaying = false;
     } else {
+        
         song.pause();
         playBtn.innerHTML = `<i class="fa-light fa-circle-play"></i>`;
         isPlaying = true;
+        if( topSongThumb.classList.contains('rotatePlay')) topSongThumb.classList.remove('rotatePlay');
+        topSongThumb.classList.add('rotatePause');
+        setTimeout(function() {
+            topSongThumb.classList.remove('rotatePause');
+            },500)
     }
 }
 backWard.addEventListener('click',backMusic);
@@ -348,8 +365,12 @@ function backMusic(){
         }
     }
 }
-
+function centerScroll(i){
+    
+}
 function playTopSong(index){
+    console.log("hii");
+    itemTopSong[index].scrollIntoView({behavior: "smooth", block: "center"});
     isAnotherSongPlaying = false;
     removeWhiteBackground(0);
     renderListMusicOf('sontung',0);
@@ -398,7 +419,7 @@ function formatTimer(num){
 songBar.addEventListener('change',changeBar);
 function changeBar(){
     song.currentTime =songBar.value ;
-}
+}var itemTopSong =[];
 function renderTopSong(){
     listTopSong.innerHTML = '';
     for( var index= 0; index< topSong.length ; index++ ){
@@ -406,7 +427,7 @@ function renderTopSong(){
     if (index == topSongIndex){
         
         listTopSong.innerHTML += `
-        <div onclick="playTopSong(${index})" class="topSong" style="background-color:white">
+        <div onclick="playTopSong(${index}),centerScroll(${index})" class="topSong" style="background-color:white">
         <div class="topMusicLeft">
                 <div class="topSong_rank"><img class="iconwavegif" src="./icon/wave.gif" alt=""></div>
                 <div class="topSong_love"><i class="fa-light fa-heart"></i></div>
@@ -419,7 +440,7 @@ function renderTopSong(){
     </div>`
         } else {
             listTopSong.innerHTML += `
-        <div onclick="playTopSong(${index})" class="topSong" >
+        <div onclick="playTopSong(${index}),centerScroll(${index})" class="topSong" >
         <div class="topMusicLeft">
                 <div class="topSong_rank">${Number(index)+1}</div>
                 <div class="topSong_love"><i class="fa-light fa-heart"></i></div>
@@ -446,8 +467,11 @@ function renderTopSong(){
     </div>`
     }
     }
+    itemTopSong = document.querySelectorAll('.topSong');
+    console.log(itemTopSong);
 }
 renderTopSong();
+
 
 function replaceAtributeTopSong(){
     song.setAttribute("src",`./musics/${topSong[topSongIndex].nameFile}`);
@@ -619,6 +643,10 @@ let iOfAnotherSong;
 let indexOfAnotherSong;
 
 function playAnotherSong(index,i){
+    if( mobile ) {
+        anotherSongItem[i].scrollIntoView({behavior: "smooth", block: "center"});
+   // loop.classList.remove('active');
+    }
     iOfAnotherSong = i;
     console.log(iOfAnotherSong);
     indexOfAnotherSong = index;
