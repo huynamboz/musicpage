@@ -460,4 +460,24 @@ input[type=range]::-webkit-slider-thumb {
     .listArtist{
         display: none;
     }
+    .recentPlayed_title{
+        display: none;
+    }
+    .listArtist_title{
+        display: none;
+    }
+    .playerBar_item {
+        display: flex;
+        width: 100%;
+        justify-self: unset;
+    }
+    .playerBar_item-info{
+        display: flex;
+        margin-right: 5px;
+        width: auto;
+    }
+    .anotherSong{
+    height: 250px;
+    overflow: scroll;
+    }
 }

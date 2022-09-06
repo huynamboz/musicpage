@@ -20,7 +20,9 @@ var forWard = document.querySelector('.next');
 let volRange = document.getElementById('volRange');
 let volIcon = document.querySelector('.playerBar_item-vol--icon');
 let anotherSong = document.querySelector('.anotherSong');
-
+console.log(screen.width);
+let mobile = false
+if ( screen.width < 740) mobile = true;
 setInterval(autoNextTopSong,500);
 setInterval(displayTimer, 500);
 //setInterval(renderTopSong, 500);
@@ -257,7 +259,7 @@ function nextMusic(){
         for ( var num = 0; num < arrayAdd.length; num++){
             if( arrayAdd[num] == indexOfAnotherSong){
                 console.log(arrayAdd[num++],iOfAnotherSong);
-                if(iOfAnotherSong == 4) {
+                if(iOfAnotherSong == lengthOfarrayAdd) {
                     iOfAnotherSong =0;
                     playAnotherSong(arrayAdd[0],iOfAnotherSong);
                 }
@@ -553,6 +555,7 @@ function checkValue(num){
     }
     return dem;
 }
+let lengthOfarrayAdd = 0;
 function pushArray(){
     // for ( var i = 0 ; i < topSong.length ; i++ ){
     //     var termpValue = Math.floor(Math.random()* listSongOf.length);
@@ -563,7 +566,8 @@ function pushArray(){
     //         }
     //     } else i =0;
     // }
-    while( arrayAdd.length <4 ){
+    if ( mobile ){ lengthOfarrayAdd = 8} else lengthOfarrayAdd = 4;
+    while( arrayAdd.length <lengthOfarrayAdd ){
         var termpValue = Math.floor(Math.random()* listSongOf.length);
         if ( checkValue(termpValue)) {
             arrayAdd.push(termpValue);
