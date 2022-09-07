@@ -264,6 +264,8 @@ backWard.addEventListener('click',backMusic);
 forWard.addEventListener('click',nextMusic);
 let termp;
 function nextMusic(){
+    isRandom = true;
+    randomMusic();
     if( isTopSongPlaying ){
         topSongIndex++;
         if ( topSongIndex == topSong.length)
@@ -291,8 +293,7 @@ function nextMusic(){
             }
         }
         
-    }
-    else {
+    } else {
         if ( currentNum < listSongOf.length-1){
             var currentNum2 = currentNum;
             currentNum++;
@@ -318,6 +319,8 @@ function nextMusic(){
     }
 }
 function backMusic(){
+    isRandom = true;
+    randomMusic();
     if( isTopSongPlaying ){
         topSongIndex--;
         if ( topSongIndex <0) topSongIndex = topSong.length -1;
@@ -409,10 +412,11 @@ function randomMusic(){
         iconRandom.style.color = 'green';
         randomNewMusic();
         isTopSongPlaying = false;
-    renderTopSong();
+        renderTopSong();
     } else {
         isRandom = false;
         iconRandom.style.color = 'black';
+        isTopSongPlaying = true;
 
     }
     
