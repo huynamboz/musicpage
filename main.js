@@ -1,6 +1,6 @@
 
 var listTopSong = document.querySelector('.topMusic_item--song');
-
+var checkKey = document.getElementById('allPage');
 var song = document.getElementById('songFile');
 var playBtn = document.getElementById('pause');
 var songBar = document.getElementById('songBar');
@@ -27,6 +27,7 @@ if ( screen.width < 740) mobile = true;
 setInterval(autoNextTopSong,500);
 setInterval(displayTimer, 500);
 //setInterval(renderTopSong, 500);
+
 
 let numberOfArtist = 5;
 var isPlaying = true;

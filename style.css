@@ -350,7 +350,7 @@ background: linear-gradient(90deg, rgba(225,237,250,1) 0%, rgba(247,238,242,1) 1
 }
 .rangeBar{
     margin-top: 0;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -363,9 +363,11 @@ background: linear-gradient(90deg, rgba(225,237,250,1) 0%, rgba(247,238,242,1) 1
 }
 .currTime{
     margin-top: 5px;
+    margin-left: 10px;
 }
 .durrTime{
     margin-top: 5px;
+    margin-right: 10px;
 }
 .playerBar_item{
     display: flex;
