@@ -250,7 +250,8 @@
 
     <div class="rangeBar">
         <div class="currTime">00:00</div>
-        <div class="music_bar"><input type="range" name="songBar" id="songBar"></div>
+        <!-- <div class="music_bar"><input type="range" name="songBar" id="songBar"></div> -->
+        <input type="range" step="1" class="seekbar" value="0"  oninput="handleSeekBar()">
         <div class="durrTime">00:00</div>
     </div>  
     <audio id="songFile"></audio>
@@ -263,9 +264,11 @@
                 </div>
         </div>
         <div class="playerBar_item-action">
-            <div class="back playerBar_item-action--size"><i class="fa-light fa-backward-fast"></i></div>
-            <div id="pause" class="pause playerBar_item-action--pausesize"><i class="fa-light fa-circle-play"></i></div>
-            <div class="next playerBar_item-action--size"><i class="fa-light fa-forward-fast"></i></div>            
+            <div class="random"><i class="fa-light fa-shuffle"></i></div>
+            <div class="back playerBar_item-action--size"><i class="fa-solid fa-backward-fast"></i></div>
+            <div id="pause" class="pause playerBar_item-action--pausesize"><i class="fa-solid fa-circle-play"></i></div>
+            <div class="next playerBar_item-action--size"><i class="fa-solid fa-forward-fast"></i></div>   
+            <div class="replay"><i class="fa-light fa-arrows-repeat"></i></div>
         </div>
         <div class="playerBar_item-vol">
             <div class="playerBar_item-vol--icon" onclick="muteVol()"><i class="fa-solid fa-volume-high"></i></div>

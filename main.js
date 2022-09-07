@@ -17,10 +17,12 @@ var curtime = document.querySelector('.currTime');
 var durtime = document.querySelector('.durrTime');
 var backWard = document.querySelector('.back');
 var forWard = document.querySelector('.next');
+let repeat = document.querySelector('.replay');
 let volRange = document.getElementById('volRange');
 let volIcon = document.querySelector('.playerBar_item-vol--icon');
 let anotherSong = document.querySelector('.anotherSong');
 let mobile = false
+let iconRandom = document.querySelector('.random');
 if ( screen.width < 740) mobile = true;
 setInterval(autoNextTopSong,500);
 setInterval(displayTimer, 500);
@@ -243,12 +245,12 @@ function playMusic(){
         if( topSongThumb.classList.contains('rotatePause')) topSongThumb.classList.remove('rotatePause');
         topSongThumb.classList.add('rotatePlay');
         song.play();
-        playBtn.innerHTML = `<i class="fa-light fa-circle-pause"></i>`;
+        playBtn.innerHTML = `<i class="fa-sharp fa-solid fa-circle-pause"></i>`;
         isPlaying = false;
     } else {
         
         song.pause();
-        playBtn.innerHTML = `<i class="fa-light fa-circle-play"></i>`;
+        playBtn.innerHTML = `<i class="fa-solid fa-circle-play"></i>`;
         isPlaying = true;
         if( topSongThumb.classList.contains('rotatePlay')) topSongThumb.classList.remove('rotatePlay');
         topSongThumb.classList.add('rotatePause');
@@ -263,7 +265,10 @@ let termp;
 function nextMusic(){
     if( isTopSongPlaying ){
         topSongIndex++;
-        if ( topSongIndex > 3) topSongIndex =0;
+        if ( topSongIndex == topSong.length)
+            topSongIndex =0;
+            itemTopSong[topSongIndex].scrollIntoView({behavior: "smooth", block: "center"});
+        
         replaceAtributeTopSong();
         isPlaying =true;
         playMusic();
@@ -314,7 +319,8 @@ function nextMusic(){
 function backMusic(){
     if( isTopSongPlaying ){
         topSongIndex--;
-        if ( topSongIndex <0) topSongIndex =3;
+        if ( topSongIndex <0) topSongIndex = topSong.length -1;
+        itemTopSong[topSongIndex].scrollIntoView({behavior: "smooth", block: "center"});
         replaceAtributeTopSong();
         isPlaying =true;
         playMusic();
@@ -365,9 +371,64 @@ function backMusic(){
         }
     }
 }
-function centerScroll(i){
+
+let listRandom = [];
+function randomNewMusic(){
+
+    while( listRandom.length < listSongOf.length ){
+        var termpValue = Math.floor(Math.random()* listSongOf.length);
+        if ( checkValue(termpValue),listRandom) {
+            listRandom.push(termpValue);
+        }
+    }
+    console.log(listRandom);
+}
+var indexRandm = 0;
+function runRandomList(){
+    if( indexRandm == listRandom.length) indexRandm=0;
+    song.setAttribute("src",`./musics/${listSongOf[listRandom[indexRandm]].nameFile}`);
+    miniArtist.textContent = `${listSongOf[listRandom[indexRandm]].nameArtist}`;
+    miniTitle.textContent = `${listSongOf[listRandom[indexRandm]].nameSong}`;
+    topSongThumb.setAttribute("src",`./img/${listSongOf[listRandom[indexRandm]].img}`);
+    playThumb.setAttribute("src",`./img/${listSongOf[listRandom[indexRandm]].img}`);
+    isPlaying =true;
+    playMusic();
+    indexRandm++;
+}
+let isRepeat = false;
+let isRandom = false;
+repeat.addEventListener('click',repeatMusic);
+iconRandom.addEventListener('click',randomMusic);
+function randomMusic(){
+    if( isRandom == false ) {
+        listRandom= [];
+        isRepeat = true;
+        isRandom = true;
+        repeatMusic();
+        iconRandom.style.color = 'green';
+        randomNewMusic();
+        isTopSongPlaying = false;
+    renderTopSong();
+    } else {
+        isRandom = false;
+        iconRandom.style.color = 'black';
+
+    }
     
 }
+function repeatMusic(){
+    if ( isRepeat == false ){
+        isRepeat = true;
+        repeat.setAttribute("style",`color:green`);
+    } else {
+        isRepeat = false;
+        repeat.setAttribute("style",`color:black`);
+
+    }
+    
+}
+
+
 function playTopSong(index){
     console.log("hii");
     itemTopSong[index].scrollIntoView({behavior: "smooth", block: "center"});
@@ -382,31 +443,31 @@ function playTopSong(index){
     renderTopSong();
 }
 function autoNextTopSong(){
-    // if(isTopSongPlaying){
+    if(isRepeat == false && isRandom == false ){
     if( song.currentTime == song.duration){
-    // if( topSongIndex >= topSong.length) {
-    //     topSongIndex = 0;
-    //     replaceAtributeTopSong();
-    //     isPlaying = true;
-    //     playMusic();
-    //     renderTopSong();
-    // } else {
-    //     topSongIndex++;
-    //     replaceAtributeTopSong();
-    //     isPlaying = true;
-    //     playMusic();
-    //     renderTopSong();
-    // }
-    nextMusic();
-}
-    // } 
+            nextMusic();    
+        } 
+    } else if( isRepeat){
+        if( song.currentTime >= song.duration -1 ) {
+            console.log("hi");
+            song.currentTime = 0;
+        }
+    } else if ( isRandom ){
+        if( song.currentTime == song.duration){
+        console.log(indexRandm);
+        runRandomList();
+        }
+    } 
 }
 
+var seekbar = document.querySelector('.seekbar')
+song.ontimeupdate = function () { seekbar.value = song.currentTime }
+handleSeekBar = function () { song.currentTime = seekbar.value }
 
 
 function displayTimer(){
-    songBar.max = song.duration;
-    songBar.value = song.currentTime;
+    seekbar.min = 0;
+    seekbar.max = song.duration;
     curtime.textContent = formatTimer(song.currentTime);
     durtime.textContent = formatTimer(song.duration);
 }
@@ -416,7 +477,7 @@ function formatTimer(num){
     if ( sec < 10) return `${min}:0${sec}`
     else return `${min}:${sec}`
 }
-songBar.addEventListener('change',changeBar);
+// songBar.addEventListener('change',changeBar);
 function changeBar(){
     song.currentTime =songBar.value ;
 }var itemTopSong =[];
@@ -436,7 +497,7 @@ function renderTopSong(){
                     <div class="topSong_name-artist">${topSong[index].nameArtist}</div>
                 </div> 
         </div>
-        <div class="topSong_time">${topSong[index].time}</div>
+        <div class="topSong_time" style="color:black">${topSong[index].time}</div>
     </div>`
         } else {
             listTopSong.innerHTML += `
@@ -595,15 +656,14 @@ function pushArray(){
     if ( mobile ){ lengthOfarrayAdd = 8} else lengthOfarrayAdd = 4;
     while( arrayAdd.length <lengthOfarrayAdd ){
         var termpValue = Math.floor(Math.random()* listSongOf.length);
-        if ( checkValue(termpValue)) {
+        if ( checkValue(termpValue),arrayAdd) {
             arrayAdd.push(termpValue);
+        }
     }
-}
 }
 function renderAnotherSong(){
     arrayAdd = [];
     pushArray();
-    console.log(arrayAdd);
     anotherSong.innerHTML = '';
     for ( var i = 0 ; i < arrayAdd.length ; i++){
         anotherSong.innerHTML += `
